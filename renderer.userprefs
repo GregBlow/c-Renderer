@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="renderer/Line.cs">
+    <Files>
+      <File FileName="renderer/Program.cs" Line="2" Column="2" />
+      <File FileName="renderer/Polygon.cs" Line="1" Column="1" />
+      <File FileName="renderer/Point3.cs" Line="1" Column="1" />
+      <File FileName="renderer/Node.cs" Line="1" Column="1" />
+      <File FileName="renderer/Line.cs" Line="46" Column="46" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

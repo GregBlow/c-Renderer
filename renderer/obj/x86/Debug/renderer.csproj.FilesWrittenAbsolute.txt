@@ -1,0 +1,5 @@
+/home/greg/renderer/renderer/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/greg/renderer/renderer/bin/Debug/renderer.exe.mdb
+/home/greg/renderer/renderer/bin/Debug/renderer.exe
+/home/greg/renderer/renderer/obj/x86/Debug/renderer.exe
+/home/greg/renderer/renderer/obj/x86/Debug/renderer.exe.mdb
