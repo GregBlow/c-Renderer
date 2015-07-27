@@ -58,7 +58,7 @@ public class MainForm : System.Windows.Forms.Form
 		this.components = new System.ComponentModel.Container ();
 		this.timer = new System.Windows.Forms.Timer (this.components);
 		this.timer.Enabled = true;
-		this.timer.Interval = 1000;
+		this.timer.Interval = 100;
 		this.timer.Tick += new System.EventHandler (this.timer_Tick);
 
 		this.MouseDown += new System.Windows.Forms.MouseEventHandler (this.Form_MouseDown);
@@ -161,10 +161,11 @@ public class MainForm : System.Windows.Forms.Form
 		renderer.Polygon demoObject = CreateTestPolygon ();
 		demoObject.Draw2D (p, g);
 		LineTest (testLine1, g, 0);
-		LineTest (testLine2, g, Math.PI/4);
+		LineTest (testLine2, g, Math.PI/100);
 		try
 		{
-			testLine1.FindLineLineIntersection (testLine2);
+			Console.Write(testLine1.FindLineLineIntersection (testLine2));
+			testLine1.DrawPoint(g, testLine1.FindLineLineIntersection (testLine2), new SolidBrush(Color.Purple));
 		}
 		catch (ArgumentException e) {
 			Console.WriteLine ("Invalid arguments");

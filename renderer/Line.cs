@@ -65,7 +65,14 @@ namespace renderer
 			}
 			return retString;
 		}
-
+		public double AddComp
+		{
+			get{ return this.addComp; }
+		}
+		public double MultComp
+		{
+			get{ return this.multComp; }
+		}
 		public double Angle
 		{
 			get{return this.angle;}
@@ -155,7 +162,8 @@ namespace renderer
 			g.DrawLine (pen, p1, p2);
 			g.FillRectangle (r, new Rectangle (p1.X-3, p1.Y-3, 7, 7));
 			g.FillRectangle (new SolidBrush (Color.Blue), new Rectangle (p2.X-3, p2.Y-3, 7, 7));
-			g.FillRectangle (new SolidBrush(Color.Green), new Rectangle (this.p1.X - 3, this.p1.Y -3, 7, 7)); 
+			//g.FillRectangle (new SolidBrush(Color.Green), new Rectangle (this.p1.X - 3, this.p1.Y -3, 7, 7));
+			DrawPoint (g, this.p1, new SolidBrush (Color.Green));
 		}
 		public void DrawLine(Graphics g)
 		{
@@ -171,6 +179,11 @@ namespace renderer
 				return false;
 			}
 		}
+		public void DrawPoint(Graphics g, Point point, SolidBrush brush)
+		{
+			Rectangle drawRect = new Rectangle (point.X-3, point.Y-3, 7, 7);
+			g.FillRectangle(brush, drawRect);
+		}
 		public Point FindLineLineIntersection(Line line2)
 		{
 			double epsilonValue = 1e-15;
@@ -181,12 +194,17 @@ namespace renderer
 					throw new System.ArgumentException ("Lines are parallel");
 						
 				} else {
-					Console.Write (Math.Abs (this.Angle - line2.Angle));
+					double numerator = this.AddComp - line2.AddComp;
+					double denominator = line2.MultComp - this.MultComp;
+					double sharedY = numerator / denominator;
+					double sharedX = sharedY * this.MultComp + this.AddComp;
+					retPoint.X = (int)sharedX;
+					retPoint.Y = (int)sharedY;
 				}
 			} else {
 				throw new System.ArgumentException ("Comparison line is equal to calling line");
 			}
-			return new Point (0, 0);
+			return retPoint;
 		}
 	}
 
